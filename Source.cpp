@@ -162,7 +162,6 @@ Calculated totals
 Total Current Yearly Income: $396326.19
 Total Raise Amount: $21788.37
 Total New Pay Amount:$418114.53
-C:\Users\knewi\source\repos\project 2\Debug\project 2.exe (process 3640) exited with code 0.
 Press any key to close this window . . .
 
 	*/

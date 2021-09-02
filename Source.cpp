@@ -111,8 +111,10 @@ int main()
 	printf("\nEmployee %s in department of %s earns $%0.2f per year with a raise percentage of %0.1f%%. \nThis employee now earns $%0.2f more for a total of $%0.2f", name, department, cyi, raise, raiseAmt, newPay);
 
 	printf("\n\n\nCalculated totals\n---------------------------\n");
-	printf("Total Current Yearly Income: $%0.2f\nTotal Raise Amount: $%0.2f\nTotal New Pay Amount:$%0.2f", totalCyi, totalRaiseAmt, totalNewPay);
-
+	printf("Total Current Yearly Income: $%0.2f\nTotal Raise Amount: $%0.2f\nTotal New Pay Amount:$%0.2f\n", totalCyi, totalRaiseAmt, totalNewPay);
+	
+	system("PAUSE");
+}
 	/*
 Please enter the employee name:Mike Ohtani
 Please enter the employee's department:Accounting
@@ -164,4 +166,3 @@ C:\Users\knewi\source\repos\project 2\Debug\project 2.exe (process 3640) exited 
 Press any key to close this window . . .
 
 	*/
-}

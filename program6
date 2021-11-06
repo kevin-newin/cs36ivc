@@ -8,86 +8,86 @@
 	9/2/2021
 */
 
-void load(char* name, char* department, float* cyi)
+void load(char *name, char *department, float *cyi)
 {
-	getchar();
 	printf("Please enter the employee name:");
-	gets_s(name, 20);
+	scanf("%s", name);
+
 	printf("Please enter the employee's department:");
-	getchar();
-	gets_s(department, 20);
+	scanf("%s", department);
+
 	printf("Please enter the employee's current yearly income:");
-	scanf("%f", &cyi);
+	scanf("%f", *(&cyi));
 }
 
-void calc(float cyi, float raise, float* raiseAmt, float* newPay, float* totalCyi, float* totalRaiseAmt, float* totalNewPay)
+void calc(float *cyi, float *raise, float *raiseAmt, float *newPay, float *totalCyi, float *totalRaiseAmt, float *totalNewPay)
 {
 	//Determine Raise Percentage
-	if (cyi <= 70000)
+	if (*cyi <= 70000)
 	{
-		raise = 8.6;
+		*raise = 8.6;
 	}
-	else if (cyi >= 70000.1 && cyi <= 80000)
+	else if (*cyi >= 70000.1 && *cyi <= 80000)
 	{
-		raise = 7.4;
+		*raise = 7.4;
 	}
-	else if (cyi >= 80000.1 && cyi <= 90000)
+	else if (*cyi >= 80000.1 && *cyi <= 90000)
 	{
-		raise = 5.8;
+		*raise = 5.8;
 	}
-	else if (cyi >= 90000.1)
+	else if (*cyi >= 90000.1)
 	{
-		raise = 4.9;
+		*raise = 4.9;
 	}
 
 	//Calculating Totals
-	*raiseAmt = (cyi * raise) / 100;
-	*newPay = cyi + *raiseAmt;
-	*totalCyi += cyi;
+	*raiseAmt = (*cyi * *raise) / 100;
+	*newPay = *cyi + *raiseAmt;
+	*totalCyi += *cyi;
 	*totalRaiseAmt += *raiseAmt;
 	*totalNewPay += *newPay;
 }
 
-void print(char* name, char* department, float* cyi, float* raise, float* raiseAmt, float* newPay)
+void print(char *name, char *department, float *cyi, float *raise, float *raiseAmt, float *newPay)
 {
 	printf("\nEmployee %s in department of %s earns $%0.2f per year with a raise percentage of %0.1f%%. \nThis employee now earns $%0.2f more for a total of $%0.2f", name, department, cyi, raise, raiseAmt, newPay);
 }
 
-void finalprint(float* totalCyi, float* totalRaiseAmt, float* totalNewPay)
+void finalprint(float *totalCyi, float *totalRaiseAmt, float *totalNewPay)
 {
 	printf("\n\n\nCalculated totals\n---------------------------\n");
-	printf("Total Current Yearly Income: $%0.2f\nTotal Raise Amount: $%0.2f\nTotal New Pay Amount:$%0.2f\n", &totalCyi, &totalRaiseAmt, &totalNewPay);
+	printf("Total Current Yearly Income: $%0.2f\nTotal Raise Amount: $%0.2f\nTotal New Pay Amount:$%0.2f\n", totalCyi, totalRaiseAmt, totalNewPay);
 }
 
 int main()
 {
 	char name[20];
 	char department[20];
-	float cyi, raise, raiseAmt, newPay, totalCyi = 0, totalRaiseAmt = 0, totalNewPay = 0;
-
+	float cyi = 0, raise = 0, raiseAmt = 0, newPay = 0, totalCyi = 0, totalRaiseAmt = 0, totalNewPay = 0;
+	
 	//Employee 1
 	load(name, department, &cyi);
-	calc(cyi, raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
+	calc(&cyi, &raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
 	print(name, department, &cyi, &raise, &raiseAmt, &newPay);
 
 	//Employee 2
 	load(name, department, &cyi);
-	calc(cyi, raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
+	calc(&cyi, &raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
 	print(name, department, &cyi, &raise, &raiseAmt, &newPay);
 
 	//Employee 3
 	load(name, department, &cyi);
-	calc(cyi, raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
+	calc(&cyi, &raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
 	print(name, department, &cyi, &raise, &raiseAmt, &newPay);
 
 	//Employee 4
 	load(name, department, &cyi);
-	calc(cyi, raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
+	calc(&cyi, &raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
 	print(name, department, &cyi, &raise, &raiseAmt, &newPay);
 
 	//Employee 5
 	load(name, department, &cyi);
-	calc(cyi, raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
+	calc(&cyi, &raise, &raiseAmt, &newPay, &totalCyi, &totalRaiseAmt, &totalNewPay);
 	print(name, department, &cyi, &raise, &raiseAmt, &newPay);
 
 	//Final Print of Totals
